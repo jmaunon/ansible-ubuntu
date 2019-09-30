@@ -34,7 +34,7 @@
     # - { role: php, become: true }
     # - { role: php-pecl, become: true }
     # - { role: php-phar-tools, become: true }
-    # - { role: python, become: true }
+    - { role: python, become: true }
     # - { role: redis, become: true }
     # - { role: rbenv, become: true }
     # - { role: ssh, become: true }
@@ -105,3 +105,6 @@
     # - { role: browsersync }
     # - { role: bower }
     # - { role: webpack }
+    
+  environment:
+    #http_proxy: http://ptmproxy.gmv.es:80

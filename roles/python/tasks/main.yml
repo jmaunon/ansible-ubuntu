@@ -1,8 +1,30 @@
 ---
 
-- name: Install Python packages
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time={{ aptcachetime }}
-  with_items:
-    - python
-    - python-dev
-    - python-pip
+- apt_repository:
+    repo: ppa:jonathonf/python-3.6
+
+- name: Install Python 3.6 packages
+  apt: 
+    pkg:
+        - python3.6
+        - python3.6-dev
+        - python3.6-venv
+
+
+
+- name: Install pip 3.6
+  shell: |
+    wget https://bootstrap.pypa.io/get-pip.py
+    python3.6 get-pip.py
+
+
+- pip:
+    name: 
+        - numpy
+        - pandas
+        - scipy
+        - scikit-learn
+        - matplotlib
+    executable: pip3.6
+
+  
