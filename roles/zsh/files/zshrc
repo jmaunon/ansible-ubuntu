@@ -1,3 +1,6 @@
+
+export ZSH=$HOME/.oh-my-zsh # set .oh-my-zsh 
+
 setopt long_list_jobs       # list jobs in the long format by default
 setopt auto_resume          # Attempt to resume existing job before creating a new process.
 setopt notify               # Report status of background jobs immediately.
@@ -615,3 +618,13 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%} %{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$reset_color%}"
 
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+SAVEHIST=10
+HISTFILE=~/.zsh_history
+
+ZSH_THEME="awesomepanda"
+
+plugins=(git python aws docker)
+
+source $ZSH/oh-my-zsh.sh

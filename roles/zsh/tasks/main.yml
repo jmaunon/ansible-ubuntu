@@ -13,4 +13,17 @@
   user: name={{ ansible_env.USER }} shell=/bin/zsh
 
 - name: "Copy default ZSH config for user {{ ansible_env.USER }}"
-  copy: src="zshrc" dest="{{ ansible_env.HOME }}/.zshrc" owner="{{ ansible_env.USER }}" group="{{ ansible_env.USER }}" force=no
+  copy: src="zshrc" dest="{{ ansible_env.HOME }}/.zshrc" owner="{{ ansible_env.USER }}" group="{{ ansible_env.USER }}" force=yes
+
+- git: 
+    repo: 'https://github.com/robbyrussell/oh-my-zsh.git'
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh"
+
+- git: 
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+    dest: "{{ ansible_env.HOME }}/.zsh/zsh-autosuggestions"
+
+# Example git checkout from Ansible Playbooks
+#- git:
+#    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+#    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
