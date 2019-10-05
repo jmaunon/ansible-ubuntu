@@ -1,0 +1,60 @@
+
+- name: Remove "vim-tiny" package
+  apt:
+    name: vim-tiny
+    state: absent
+    update_cache: yes
+
+- name: Install full-vim package
+  apt:
+    name: vim
+    state: present
+    update_cache: yes
+
+# - git: 
+#     repo: 'https://github.com/amix/vimrc.git'
+#     dest: "{{ ansible_env.HOME }}/.vim_runtime"  
+#     force: yes
+
+- name: change permission
+  command: chmod -R 777 {{ ansible_env.HOME }}/.vim_runtime
+
+- name: install
+  shell: "/bin/sh /home/bda/.vim_runtime/install_awesome_vimrc.sh"
+  args:
+    chdir: "{{ ansible_env.HOME }}"
+
+  
+
+
+
+
+
+# - apt_repository:
+#     repo: ppa:jonathonf/python-3.6
+
+# - name: Install Python 3.6 packages
+#   apt: 
+#     pkg:
+#         - python3.6
+#         - python3.6-dev
+#         - python3.6-venv
+
+
+
+# - name: Install pip 3.6
+#   shell: |
+#     wget https://bootstrap.pypa.io/get-pip.py
+#     python3.6 get-pip.py
+
+
+# - pip:
+#     name: 
+#         - numpy
+#         - pandas
+#         - scipy
+#         - scikit-learn
+#         - matplotlib
+#     executable: pip3.6
+
+  
