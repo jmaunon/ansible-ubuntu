@@ -11,16 +11,26 @@
     state: present
     update_cache: yes
 
-# - git: 
-#     repo: 'https://github.com/amix/vimrc.git'
-#     dest: "{{ ansible_env.HOME }}/.vim_runtime"  
-#     force: yes
+- name: download awesome vimrc 	    
+  git: 
+    repo: 'https://github.com/amix/vimrc.git'
+    dest: "{{ ansible_env.HOME }}/.vim_runtime"  
+    force: yes
+
+- name: "copy .vim_runtime"
+  copy: 
+    src: "install_awesome_vimrc.sh"
+    dest: "{{ ansible_env.HOME  }}"
+    owner: "{{ ansible_env.USER  }}"
+    group: "{{ ansible_env.USER  }}" 
+    force: yes
+
 
 - name: change permission
   command: chmod -R 777 {{ ansible_env.HOME }}/.vim_runtime
 
 - name: install
-  shell: "/bin/sh /home/bda/.vim_runtime/install_awesome_vimrc.sh"
+  shell: "/bin/sh {{ansible_env.HOME}}/.vim_runtime/install_awesome_vimrc.sh"
   args:
     chdir: "{{ ansible_env.HOME }}"
 
