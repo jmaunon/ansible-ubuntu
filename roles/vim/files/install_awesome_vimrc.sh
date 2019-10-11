@@ -1,18 +1,18 @@
 #!/bin/sh
 set -e
 
-cd {{ansible_env.HOME }}/.vim_runtime
+echo '
 
-echo 'set runtimepath+={{ansible_env.HOME }}/.vim_runtime
+let g:go_version_warning = 0 "vim requires newer version
+set runtimepath+=~/.vim_runtime
 
-source {{ansible_env.HOME }}/.vim_runtime/vimrcs/basic.vim
-source {{ansible_env.HOME }}/.vim_runtime/vimrcs/filetypes.vim
-source {{ansible_env.HOME }}/.vim_runtime/vimrcs/plugins_config.vim
-source {{ansible_env.HOME }}/.vim_runtime/vimrcs/extended.vim
+source ~/.vim_runtime/vimrcs/basic.vim
+source ~/.vim_runtime/vimrcs/filetypes.vim
+source ~/.vim_runtime/vimrcs/plugins_config.vim
+source ~/.vim_runtime/vimrcs/extended.vim
 
 try
-source {{ansible_env.HOME }}/.vim_runtime/my_configs.vim
+source ~/.vim_runtime/my_configs.vim
 catch
-endtry' > {{ansible_env.HOME }}/.vimrc
+endtry'
 
-echo "Installed the Ultimate Vim configuration successfully! Enjoy :-)"

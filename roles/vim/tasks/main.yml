@@ -5,6 +5,10 @@
     state: absent
     update_cache: yes
 
+- name: Add "vim" repository 
+  apt_repository:
+    repo: ppa:jonathonf/vim
+
 - name: Install full-vim package
   apt:
     name: vim
@@ -17,7 +21,10 @@
     dest: "{{ ansible_env.HOME }}/.vim_runtime"  
     force: yes
 
-- name: "copy .vim_runtime"
+- name: change permission .vim_runtime
+  command: chmod -R 777 {{ ansible_env.HOME }}/.vim_runtime
+
+- name: "copy install_awesome_vimrc.sh"
   copy: 
     src: "install_awesome_vimrc.sh"
     dest: "{{ ansible_env.HOME  }}"
@@ -26,16 +33,19 @@
     force: yes
 
 
-- name: change permission
-  command: chmod -R 777 {{ ansible_env.HOME }}/.vim_runtime
 
-- name: install
-  shell: "/bin/sh {{ansible_env.HOME}}/.vim_runtime/install_awesome_vimrc.sh"
-  args:
-    chdir: "{{ ansible_env.HOME }}"
 
-  
+#- name: install
+#command: /bin/sh {{ansible_env.HOME}}/.vim_runtime/install_awesome_vimrc.sh 
+#  args:
+#  chdir: "{{ansible_env.HOME}}"
 
+- name: Install install_awesome_vimrc.sh
+  shell: |
+    echo "{{ansible_env.HOME}}"
+    cd "{{ansible_env.HOME}}"
+    rm {{ansible_env.HOME}}/.vimrc
+    sh {{ ansible_env.HOME }}/install_awesome_vimrc.sh >> {{ ansible_env.HOME }}/.vimrc
 
 
 
