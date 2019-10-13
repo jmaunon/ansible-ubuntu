@@ -15,66 +15,18 @@
     state: present
     update_cache: yes
 
-- name: download awesome vimrc 	    
-  git: 
-    repo: 'https://github.com/amix/vimrc.git'
-    dest: "{{ ansible_env.HOME }}/.vim_runtime"  
-    force: yes
+# This configuration comes from https://github.com/amix/vimrc    
+# - name: copy consul_ui files
+#   command: cp -r .vim_runtime {{ansible_env.HOME}}
 
-- name: change permission .vim_runtime
-  command: chmod -R 777 {{ ansible_env.HOME }}/.vim_runtime
+- name: Copy .vim_runtime
+  unarchive:
+    src: .vim_runtime.tar.gz
+    dest: "{{ ansible_env.HOME  }}"
 
-- name: "copy install_awesome_vimrc.sh"
-  copy: 
-    src: "install_awesome_vimrc.sh"
+- name: Copy .vimrc
+  copy:
+    src: .vimrc
     dest: "{{ ansible_env.HOME  }}"
     owner: "{{ ansible_env.USER  }}"
-    group: "{{ ansible_env.USER  }}" 
-    force: yes
-
-
-
-
-#- name: install
-#command: /bin/sh {{ansible_env.HOME}}/.vim_runtime/install_awesome_vimrc.sh 
-#  args:
-#  chdir: "{{ansible_env.HOME}}"
-
-- name: Install install_awesome_vimrc.sh
-  shell: |
-    echo "{{ansible_env.HOME}}"
-    cd "{{ansible_env.HOME}}"
-    rm {{ansible_env.HOME}}/.vimrc
-    sh {{ ansible_env.HOME }}/install_awesome_vimrc.sh >> {{ ansible_env.HOME }}/.vimrc
-
-
-
-
-# - apt_repository:
-#     repo: ppa:jonathonf/python-3.6
-
-# - name: Install Python 3.6 packages
-#   apt: 
-#     pkg:
-#         - python3.6
-#         - python3.6-dev
-#         - python3.6-venv
-
-
-
-# - name: Install pip 3.6
-#   shell: |
-#     wget https://bootstrap.pypa.io/get-pip.py
-#     python3.6 get-pip.py
-
-
-# - pip:
-#     name: 
-#         - numpy
-#         - pandas
-#         - scipy
-#         - scikit-learn
-#         - matplotlib
-#     executable: pip3.6
-
-  
+    group: "{{ ansible_env.USER  }}"
