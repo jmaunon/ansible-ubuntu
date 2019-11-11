@@ -4,6 +4,12 @@
     state: present
     update_cache: yes
 
+- name: Install xclip
+  apt:
+    name: xclip
+    state: present
+    update_cache: yes
+
 - name: Copy .tmux
   unarchive:
     src: .tmux.tar.gz
