@@ -11,8 +11,8 @@
     code --install-extension vscoss.vscode-ansible
     code --install-extension james-yu.latex-workshop 
     code --install-extension quicktype.quicktype
-  become: yes
-  become_user: "{{ansible_env.USER }}"
+    code --install-extension ecmel.vscode-html-css
+  become: no
 
 
 
