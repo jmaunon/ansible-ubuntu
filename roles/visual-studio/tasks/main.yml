@@ -14,5 +14,10 @@
     code --install-extension ecmel.vscode-html-css
   become: no
 
+- name: Copy custom settings.json
+  copy:
+    src: settings.json
+    dest: $HOME/.config/Code/User
+
 
 
