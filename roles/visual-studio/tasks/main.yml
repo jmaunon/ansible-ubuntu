@@ -17,7 +17,7 @@
 - name: Copy custom settings.json
   copy:
     src: settings.json
-    dest: $HOME/.config/Code/User
+    dest: "{{ ansible_env.HOME }}/.config/Code/User"
 
 
 
