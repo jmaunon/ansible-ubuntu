@@ -23,6 +23,9 @@
     repo: 'https://github.com/zsh-users/zsh-autosuggestions'
     dest: "{{ ansible_env.HOME }}/.zsh/zsh-autosuggestions"
 
+- name: "Install fzf finder"
+  apt: 
+    name: fzf 
 # Example git checkout from Ansible Playbooks
 #- git:
 #    repo: 'https://github.com/zsh-users/zsh-autosuggestions'

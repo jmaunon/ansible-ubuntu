@@ -620,11 +620,12 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$reset_color%}"
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-SAVEHIST=10
+SAVEHIST=50
 HISTFILE=~/.zsh_history
 
 ZSH_THEME="awesomepanda"
 
-plugins=(git python aws docker)
+plugins=(aws docker fzf git history-substring-search python tmux zsh-interactive-cd)
 
 source $ZSH/oh-my-zsh.sh
+

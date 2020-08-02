@@ -1,19 +1,19 @@
 
-- name: Remove "vim-tiny" package
-  apt:
-    name: vim-tiny
-    state: absent
-    update_cache: yes
+#- name: Remove "vim-tiny" package
+#  apt:
+#    name: vim-tiny
+#    state: absent
+#    update_cache: yes
 
-- name: Add "vim" repository 
-  apt_repository:
-    repo: ppa:jonathonf/vim
+#- name: Add "vim" repository 
+#  apt_repository:
+#    repo: ppa:jonathonf/vim
 
-- name: Install full-vim package
-  apt:
-    name: vim
-    state: present
-    update_cache: yes
+#- name: Install full-vim package
+#  apt:
+#    name: vim
+#    state: present
+#    update_cache: yes
 
 # This configuration comes from https://github.com/amix/vimrc    
 # - name: copy consul_ui files
