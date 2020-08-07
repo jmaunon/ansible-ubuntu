@@ -3,37 +3,43 @@
   hosts: localhost
   roles:
     # Common roles
-
-    # - { role: zsh, become: true }
-    # - { role: vim, become: true }
+    # - { role: chrome, become: true }
+    # - { role: docker, become: true } 
+    
     # - { role: tmux, become: true} 
-    # - { role: latex, become: true}
+    # - { role: latex, become: true }
+    # - { role: vim, become: true }
+    # - { role: zsh, become: true }
+    
 
     # Server roles
-    # - { role: composer, become: true } --actualizar
-    # - { role: docker, become: true } --actualizar
+    
     # - { role: nodejs, become: true } --actualizar
     # - { role: python, become: true } 
     # Desktop roles
-    - { role: atom, become: true }
+    # - { role: atom, become: true }
     # - { role: chromium, become: true } -- actualizar
 
-    - { role: indicator-sysmonitor, become: true }
+    # - { role: indicator-sysmonitor, become: true }
     # - { role: ksuperkey, become: true } --borrar
 
-    - { role: maim, become: true }
+    # - { role: maim, become: true }
+    - { role: mega, become: true } 
 
 
-    - { role: nautilus-plugins, become: true }
+
+    # - { role: nautilus-plugins, become: true }
 
     # - { role: notepadqq, become: true } 
+
+    # - {role: pycharm, become: true}
 
     # - { role: skype, become: true } --borrar
     # - { role: smartgit, become: true }
     # - { role: spotify, become: true } --borrar
-    - { role: sublime3, become: true } 
+    # - { role: sublime3, become: true } --actualizar
 
-    - { role: visual-studio, become: true }
+    # - { role: visual-studio, become: true }
 
   environment:
     #http_proxy: http://ptmproxy.gmv.es:80
