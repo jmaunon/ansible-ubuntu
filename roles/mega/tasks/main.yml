@@ -1,0 +1,12 @@
+- name: Install MegaSync
+  apt:
+    deb: https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/megasync_4.3.3-5.1_amd64.deb
+
+- name: Install MegaCmd
+  apt:
+    deb: https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/megacmd_1.3.0-4.1_amd64.deb
+
+- name: Install Mega Nautilus Plugin
+  apt:
+    deb: https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/nautilus-megasync_3.6.6_amd64.deb
+  
