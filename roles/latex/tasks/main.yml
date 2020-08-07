@@ -1,3 +1,6 @@
-- name: Install latex
-  apt: 
-    name: texlive-latex-extra
+- name: Install latex-extra
+  apt: pkg={{ item }}
+  with_items:
+    - texlive-full
+    - texlive-latex-extra	
+  
